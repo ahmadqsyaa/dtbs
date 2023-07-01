@@ -16,7 +16,7 @@ const bookController = {
                 return res.json({msg: "OK", data: rows})
             }
 
-            res.status(404).json({msg: "not found"})
+            res.status(404).json({msg: "Tidak Ditemukan"})
         } catch (error) {
             res.json({msg: error.msg})
         }
@@ -59,7 +59,7 @@ const bookController = {
                 return res.json({msg: "OK", data: rows[0]})
             }
 
-            return res.status(404).json({msg: "not found"})
+            return res.status(404).json({msg: "Tidak Ditemukan"})
             
 
         } catch (error) {
