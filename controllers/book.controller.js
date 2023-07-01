@@ -25,9 +25,9 @@ const bookController = {
         try {
             const { name, price } = req.body
 
-            const sql = 'INSERT INTO books(name, price) VALUES($1, $2) RETURNING *'
+            const sql = 'INSERT INTO books(name, prices) VALUES($1, $2) RETURNING *'
 
-            const { rows } = await postgre.query(sql, [name, price])
+            const { rows } = await postgre.query(sql, [name, prices])
 
             res.json({msg: "OK", data: rows[0]})
 
@@ -39,7 +39,7 @@ const bookController = {
         try {
             const { name, price } = req.body
 
-            const sql = 'UPDATE books set name = $1, price = $2 where book_id = $3 RETURNING *'
+            const sql = 'UPDATE books set name = $1, prices = $2 where book_id = $3 RETURNING *'
 
             const { rows } = await postgre.query(sql, [name, price, req.params.id])
 
